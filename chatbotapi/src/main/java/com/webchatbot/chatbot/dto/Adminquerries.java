@@ -15,8 +15,7 @@ public class Adminquerries {
 	private int id;
 	private String qs;
 
-	@OneToOne(mappedBy = "adminquerries", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private qsans qsans;
+	private String ans;
 
 	public int getId() {
 		return id;
@@ -34,20 +33,26 @@ public class Adminquerries {
 		this.qs = qs;
 	}
 
-	public qsans getQsans() {
-		return qsans;
+	public String getAns() {
+		return ans;
 	}
 
-	public void setQsans(qsans qsans) {
-		this.qsans = qsans;
+	public void setAns(String ans) {
+		this.ans = ans;
 	}
 
-	public Adminquerries( String qs, qsans qsans) {
-
+	public Adminquerries(int id, String qs, String ans) {
+		super();
+		this.id = id;
 		this.qs = qs;
-		this.qsans = qsans;
+		this.ans = ans;
 	}
 
+	public Adminquerries() {
+
+	}
+	
+	
 	
 	
 	
