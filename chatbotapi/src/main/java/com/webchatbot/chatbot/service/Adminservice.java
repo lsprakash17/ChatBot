@@ -1,5 +1,6 @@
 package com.webchatbot.chatbot.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,13 +38,23 @@ public class Adminservice {
 	}
 
 	public ResponseStructure<List<String>> getAllqs() {
-		// TODO Auto-generated method stub
+
 		List<String> qs=adminquerriesRepos.findAllQs();
 		ResponseStructure<List<String>> response = new ResponseStructure<>();
 		response.setStatus(HttpStatus.OK.value());
 		response.setMsg("fetched  all qs");
+		
 		response.setData(qs);
 		
+		return response;
+	}
+
+	public ResponseStructure<String> GetAns(String ans) {
+		String answer=adminquerriesRepos.findAnsByQs(ans);
+		ResponseStructure<String> response = new ResponseStructure<>();
+		response.setStatus(HttpStatus.ACCEPTED.value());
+		response.setMsg("fetched successfully");
+		response.setData(answer+"Please Provide you Contact Details We wll contact");
 		return response;
 	}
 
